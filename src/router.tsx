@@ -9,27 +9,29 @@ import Bookmarked from "./pages/Bookmarked"
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: typeof Home
+    element: <Home />,
+    children: [
+      {
+        path: "/movies",
+        element: <Movies/>
+      },
+      {
+        path: "/series",
+        element: <Series/>
+      },
+      {
+        path: "/bookmarked",
+        element: <Bookmarked/>
+      },
+    ]
   },
   {
     path: "/login",
-    element: typeof Login
+    element: <Login />
   },
   {
     path: "/sign-up",
-    element: typeof SignUp
-  },
-  {
-    path: "/movies",
-    element: typeof Movies
-  },
-  {
-    path: "/series",
-    element: typeof Series
-  },
-  {
-    path: "/bookmarked",
-    element: typeof Bookmarked
+    element: <SignUp/>
   },
 ])
 

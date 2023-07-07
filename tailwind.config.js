@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#FC4747",
-        dark: "#10141E",
+        primary: "#161D2F",
         secondary: "#5A698F",
-        lightDark: "#161D2F",
+        dark: "#10141E",
+        danger: "#FC4747"
       },
       fontFamily: {
         primary: ['Outfit sans-serif']
