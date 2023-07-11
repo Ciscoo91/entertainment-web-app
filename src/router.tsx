@@ -5,12 +5,17 @@ import SignUp from "./pages/SighUp"
 import Movies from "./pages/Movies"
 import Series from "./pages/Series"
 import Bookmarked from "./pages/Bookmarked"
+import HomeDisplayer from "./components/HomeDisplayer"
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
     children: [
+      {
+        index: true,
+        element: <HomeDisplayer />
+      },
       {
         path: "/movies",
         element: <Movies/>

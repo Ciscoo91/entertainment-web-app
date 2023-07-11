@@ -1,30 +1,25 @@
 import React from 'react'
-import bookmarkedFull from "../assets/icon-bookmark-full.svg"
-import bookmarkedEmpty from "../assets/icon-bookmark-empty.svg"
+import {Bookmark} from "./Bookmark"
 import iconCategoryMovie from "../assets/icon-category-movie.svg"
+import { Thumbnail } from '../types'
 
 type TrendingCardProps = {
     title: string,
     year: number,
     rating: string,
     isBookmarked: boolean,
-    thumbnail: string
+    thumbnails: Thumbnail[]
 }
 
-const Bookmark = ({isBookmarked}: {isBookmarked: boolean}) => {
-    return isBookmarked ? <img src={bookmarkedFull} alt="bookmaked icon" /> : <img src={bookmarkedEmpty} alt="bookmaked icon" />
-}
 
-export default function TrendingCard({title, year, rating, isBookmarked, thumbnail}: TrendingCardProps) {
+export default function TrendingCard({title, year, rating, isBookmarked, thumbnails}: TrendingCardProps) {
   return (
-    <div className='relative flex flex-col justify-end'>
-        <span className='rounded-xl w-8 h-8 absolute rounded-full grid place-items-center t-2 z-10'>
-            <Bookmark isBookmarked={isBookmarked}/>
-        </span>
-        <img src={thumbnail} alt="" className='w-full h-full' />
-        <div>
-            <p className='text-secodary'><span>{year}</span> ● <img src={iconCategoryMovie} alt="" /> {} ● {rating}</p>
-            <h3>{title}</h3>
+    <div className='relative rounded-lg flex flex-col justify-end bg-danger min-w-[15rem] min-h-[8.75rem] mx-2'>
+        <Bookmark isBookmarked={isBookmarked}/>
+        {thumbnails.map((thumb: Thumbnail, index) => (<img key={index} src={thumb.trending?.small} alt="" className='w-full h-full absolute rounded-lg' />))}
+        <div className='flex flex-col z-10 px-2'>
+            <p className='text-white grid grid-cols-6 items-center gap-x-4 w-full'><span>{year}</span> • <img src={iconCategoryMovie} alt="" /> • {rating}</p>
+            <strong className='text-white'>{title}</strong>
         </div>
     </div>
   )
