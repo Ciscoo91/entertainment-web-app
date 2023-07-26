@@ -1,11 +1,9 @@
-import {useState} from "react"
 import { Outlet } from "react-router-dom";
 import Menu from "../components/Menu";
 import searchIcon from "../assets/icon-search.svg"
 import Layout from "../components/Layout";
 
 const Home = () => {
-    const [isSearching, setIsSearching] = useState<boolean>(false)
 
     return (
         <>

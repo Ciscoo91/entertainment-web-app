@@ -5,11 +5,6 @@ export type User = {
   bookmarks: number[]
 }
 
-enum category {
-  "Movie",
-  "TV Serie"
-}
-
 export type Media = {
   id: number,
   title: string,

@@ -1,15 +1,14 @@
 import {ReactNode} from "react"
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import userStore from "../store"
 
 type ProtectedRouteProps = {
     children: ReactNode
 }
 
-function ProtetedRoute({children}: ProtectedRouteProps){
+export function ProtetedRoute({children}: ProtectedRouteProps){
 
-    const [user, token] = userStore((state) => [state.user, state.token]);
-    const location = useLocation()
+    const [user] = userStore((state) => [state.user]);
 
     if(user == null){
         return <Navigate to="login" />

@@ -6,11 +6,12 @@ import Movies from "./pages/Movies"
 import Series from "./pages/Series"
 import Bookmarked from "./pages/Bookmarked"
 import HomeDisplayer from "./components/HomeDisplayer"
+import { ProtetedRoute } from "./components/ProtectedRoute"
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <ProtetedRoute><Home /></ProtetedRoute>,
     children: [
       {
         index: true,

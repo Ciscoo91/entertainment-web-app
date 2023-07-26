@@ -8,7 +8,7 @@ import axios from "axios"
 
 export default function HomeDisplayer() {
 
-    // const {data, isLoading, error} = useDataFetching("http://localhost:3001/movies?_embed=thumbnails")
+
     const [data, setData] = useState<Media[]>()
     const [error, setError] = useState<Error | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>()
@@ -24,7 +24,6 @@ export default function HomeDisplayer() {
 
             try {
                 const response = await axios.get("http://localhost:3000/movies?_embed=thumbnails")
-                console.log(response.data)
                 setData(response.data)
                 setIsLoading(false)
             } catch(error: any){

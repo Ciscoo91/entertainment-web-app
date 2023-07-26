@@ -1,4 +1,3 @@
-import React from 'react'
 import {Bookmark} from "./Bookmark"
 import iconCategoryMovie from "../assets/icon-category-movie.svg"
 import { Thumbnail } from '../types'
